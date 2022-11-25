@@ -5,13 +5,12 @@ USE Juegos_Adquiridos;
 CREATE TABLE Género(
   genero_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(70) NOT NULL,
-  descripcion VARCHAR(150) NOT NULL
+  descripcion VARCHAR(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Juegos(
   juego_id INTEGER UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(50) NOT NULL,
-  foto VARCHAR(255)
+  nombre VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE Juegos_x_Género(
@@ -58,6 +57,7 @@ CREATE TABLE Juegos_Adquiridos_x_Launcher(
   juego_id INTEGER UNSIGNED,
   genero_id INTEGER UNSIGNED,
   desarrolladora_id INTEGER UNSIGNED,
+  launcher_id INTEGER UNSIGNED,
   FOREIGN KEY(juego_id)
     REFERENCES Juegos(juego_id)
     ON DELETE RESTRICT
@@ -68,6 +68,10 @@ CREATE TABLE Juegos_Adquiridos_x_Launcher(
     ON UPDATE CASCADE,
   FOREIGN KEY(desarrolladora_id)
     REFERENCES Desarrolladora(desarrolladora_id)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
+  FOREIGN KEY(launcher_id)
+    REFERENCES Launcher(launcher_id)
     ON DELETE RESTRICT
     ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
