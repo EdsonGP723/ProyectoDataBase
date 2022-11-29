@@ -1,3 +1,5 @@
+USE Juegos_Adquiridos;
+
 /*Género*/
 /*Crear género*/
 INSERT INTO Género (nombre,descripcion) VALUES ("Battle Royale","Género de juego en el cual muchos jugadores deben luchar entre sí hasta que sólo quede un superviviente, que será el ganador de la partida.");
