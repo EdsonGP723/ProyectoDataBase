@@ -1,3 +1,5 @@
+USE Juegos_Adquiridos;
+
 INSERT INTO Género (nombre, descripcion) VALUES
 ("RPG","El jugador toma el rol que escoja"),
 ("FPS","Juego de disparos en primera persona"),
